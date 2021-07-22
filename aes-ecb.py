@@ -1,9 +1,9 @@
 from Crypto.Cipher import AES
  
-key = 'abcdefghijklmnop'
+key = 'urirociojoseomarurirociojoseomar'
  
 cipher = AES.new(key, AES.MODE_ECB)
-msg =cipher.encrypt('TechTutorialsX!!TechTutorialsX!!')
+msg =cipher.encrypt('Criptografia 2021-2')
 print (type(msg))
  
 print(msg.encode("hex"))

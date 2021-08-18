@@ -3,6 +3,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Util.Padding import unpad
 from time import time
+from timeit import default_timer
 
 key = '0000000000000000000000000000000000000000000000000000000000000000'
 key = bytes.fromhex(key)
@@ -11,15 +12,17 @@ text = bytes.fromhex(text)
 
 aes = AES.new(key, AES.MODE_ECB)
 # Aes Cifrado
-tiempo_inicial = time()
+t0 = default_timer()
 encrypt_aes = aes.encrypt(pad(text,AES.block_size))
-# Impresi[on de Mensaje cifrado 
-tiempo_final = time()
-print(encrypt_aes.hex())
-print("Tiempo de ejecución de cifrado: ",(tiempo_final-tiempo_inicial),"segundos")
+# Impresion de Mensaje cifrado 
+t1 = default_timer()
+#print(encrypt_aes.hex())
+print("{0:0.10f}".format(t1-t0))
+#print("Tiempo de ejecución de cifrado: ",(tiempo_final-tiempo_inicial),"segundos")
 
-tiempo_inicial = time()
+t0 = default_timer()
 msg = unpad(aes.decrypt(encrypt_aes),AES.block_size)
-tiempo_final = time()
-print(msg.hex())
-print("Tiempo de ejecución de descifrado: ",(tiempo_final-tiempo_inicial),"segundos")
+t1 = default_timer()
+#print(msg.hex())
+print("{0:0.10f}".format(t1-t0))
+#print("Tiempo de ejecución de descifrado: ",(tiempo_final-tiempo_inicial),"segundos")

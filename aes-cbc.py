@@ -7,6 +7,8 @@ from Crypto.Util.Padding import pad
 from Crypto.Util.Padding import unpad
 from Crypto.Random import get_random_bytes
 
+#CIFRADO
+
 data = b"secret"
 key = get_random_bytes(16)
 cipher = AES.new(key, AES.MODE_CBC)

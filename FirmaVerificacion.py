@@ -261,7 +261,7 @@ def promedios(vector,tam):
         suma = suma + float(vector[i])
     return suma/float(tam)
 
-def grafico(v1,v2,v3,v4,c,mensaje):
+def grafico(f1,f2,f3,f4,v1,v2,v3,v4,c):
     """
     El orden de los vectores es:
     RSA, DSA, ECDSA Binario, ECDSA Primo
@@ -269,17 +269,27 @@ def grafico(v1,v2,v3,v4,c,mensaje):
     x=np.arange(100)
     #Convertir a numeros
     for i in range(c):
+        f1[i] = float(f1[i])
+        f2[i] = float(f2[i])
+        f3[i] = float(f3[i])
+        f4[i] = float(f4[i])
         v1[i] = float(v1[i])
         v2[i] = float(v2[i])
         v3[i] = float(v3[i])
         v4[i] = float(v4[i])
-    plt.title("Gráfico de " + mensaje)
-    plt.plot(x,v1, label='RSA')
-    plt.plot(x,v2, label='DSA')
-    plt.plot(x,v3, label='ECDSA Binario')
-    plt.plot(x,v4, label='ECDSA Primo')
-    #plt.set_title(mensaje)
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    ax1.plot(x,f1, label='RSA')
+    ax1.plot(x,f2, label='DSA')
+    ax1.plot(x,f3, label='ECDSA Binario')
+    ax1.plot(x,f4, label='ECDSA Primo')
     plt.legend()
+    ax2.plot(x,v1, label='RSA')
+    ax2.plot(x,v2, label='DSA')
+    ax2.plot(x,v3, label='ECDSA Binario')
+    ax2.plot(x,v4, label='ECDSA Primo')
+    plt.legend()
+    ax1.set_title("Grafíco de creación de firmas")
+    ax2.set_title("Grafíco de verificación de firmas")
     plt.show()
 
 #Vectores para tiempos
@@ -332,5 +342,5 @@ print("---------------------------------------------------------------------")
 print("Prom:\t" + "{:.10f}".format(p_rsapps_v) + "\t{:.10f}".format(p_dsa1024_v) + "\t{:.10f}".format(p_ecdsa571_v) + "\t{:.10f}".format(p_ecdsa521_v))
 print("#####################################################################\n\n")
 
-grafico(t_rsapps_f,t_dsa1024_f,t_ecdsa571_f,t_ecdsa521_f,c,"Creación de Firmas")
-grafico(t_rsapps_v,t_dsa1024_v,t_ecdsa571_v,t_ecdsa521_v,c,"Verificación de Firmas")
+grafico(t_rsapps_f,t_dsa1024_f,t_ecdsa571_f,t_ecdsa521_f,t_rsapps_v,t_dsa1024_v,t_ecdsa571_v,t_ecdsa521_v,c)
+#grafico(t_rsapps_v,t_dsa1024_v,t_ecdsa571_v,t_ecdsa521_v,c,"Verificación de Firmas")

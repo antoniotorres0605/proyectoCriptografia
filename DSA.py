@@ -50,14 +50,15 @@ def dsa1024(msg):
     hash_msg = SHA256.new(m)
     # Se obtiene llave publica
     pKey = DSA.import_key(key.publickey().export_key())
-    # Verificacion
+    # Obtener firma para verificacion 
     verify = DSS.new(pKey, 'fips-186-3')
-    fin = time.time()
-    t_verificacion = fin - inicio
     #print(verify)
 
+    # -- Verifica la autenticidad del mensaje
     try:
         verify.verify(hash_msg, s)
+        fin = time.time()
+        t_verificacion = fin - inicio
         #print ("La firma coincide")
         return t_firma,t_verificacion
     except ValueError:

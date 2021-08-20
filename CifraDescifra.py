@@ -227,7 +227,7 @@ print("Prom:\t" + "{:.10f}".format(pc_aes_ecb) + "\t{:.10f}".format(pc_aes_cbc) 
 print("#####################################################################\n\n")
 
 print("--------------------------  DESCIFRADOS  ---------------------------")
-print("Vector\tRSA PPS\tDSA\tECDSA Bin\tECDSA Prime")
+print("Vector\tAES ECB\t\tAES CBC\t\tRSA OAEP")
 for i in range(c):
     print(str(i+1) + "\t" + str(td_aes_ecb[i]) + "\t" + str(td_aes_cbc[i]) + "\t" + str(td_rsa_oaep[i]))
 print("---------------------------------------------------------------------")

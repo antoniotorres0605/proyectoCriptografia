@@ -4,8 +4,8 @@
 import hashlib 
   
 # Mensaje al que se le aplicara una funcion hash
-msg_a = format(ord("a"),"x")
-msg_bytes=bytes.fromhex(msg_a)
+msg = "aa4"
+msg_bytes=bytes(msg, 'utf-8')
 
 # Hash de salida esperado
 real_output_a="54A59B9F22B0B80880D8427E548B7C23ABD873486E1F035DCE9CD697E85175033CAA88E6D57BC35EFAE0B5AFD3145F31"

@@ -335,7 +335,7 @@ print("Prom:\t" + "{:.10f}".format(p_rsapps_f) + "\t{:.10f}".format(p_dsa1024_f)
 print("#####################################################################\n\n")
 
 print("--------------------------  VERIFICACIÓN  ---------------------------")
-print("Vector\tRSA PPS\tDSA\tECDSA Bin\tECDSA Prime")
+print("Vector\tRSA PPS\t\tDSA\t\tECDSA Bin\tECDSA Prime")
 for i in range(c):
     print(str(i+1) + "\t" + str(t_rsapps_v[i]) + "\t" + str(t_dsa1024_v[i]) + "\t" + str(t_ecdsa571_v[i]) + "\t" + str(t_ecdsa521_v[i]))
 print("---------------------------------------------------------------------")
